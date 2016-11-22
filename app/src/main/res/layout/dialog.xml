@@ -11,7 +11,7 @@
         android:background="#ffffff"
         android:orientation="vertical"
         android:id="@+id/payPassModuleLl"
-        android:paddingBottom="@dimen/activity_horizontal_margin">
+        android:paddingBottom="30dp">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -28,6 +28,7 @@
                 android:textSize="18sp" />
 
             <ImageView
+                android:id="@+id/backDialogIv"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="left|center_vertical"
@@ -48,6 +49,8 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:background="@drawable/et_border_line"
             android:inputType="textPassword"
             android:id="@+id/payPassEt"/>
@@ -73,6 +76,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/confirmBtn"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:layout_weight="1"
