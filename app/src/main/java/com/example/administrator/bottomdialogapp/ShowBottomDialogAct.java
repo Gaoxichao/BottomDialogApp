@@ -33,30 +33,26 @@ public class ShowBottomDialogAct extends AppCompatActivity {
     private void showDialog() {
         menuWindow = new BottomDialogView(ShowBottomDialogAct.this, itemsOnClick);
         //设置窗口显示在parent布局的位置并显示
-        menuWindow.showAtLocation(ShowBottomDialogAct.this.findViewById(R.id.activity_show_bottom_dialog), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        menuWindow.showAtLocation(ShowBottomDialogAct.this.findViewById(R.id.activity_show_bottom_dialog), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0); //设置窗口显示在parent布局的位置并显示
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);//自动打开软键盘
         imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     //为弹出窗口实现监听类
     private View.OnClickListener itemsOnClick = new View.OnClickListener() {
-
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.payPassEt:
-                    Log.e("adf", "sddfs");
-                    break;
+                case R.id.backDialogIv:
                 case R.id.cancelBtn:
                     menuWindow.dismiss();
                     break;
                 case R.id.confirmBtn:
-                    menuWindow.dismiss();
                     //doSomething()
+                    menuWindow.dismiss();
                     break;
                 default:
                     break;
             }
-
 
         }
 
