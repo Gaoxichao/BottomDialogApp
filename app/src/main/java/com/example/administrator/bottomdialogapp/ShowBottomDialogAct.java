@@ -1,20 +1,12 @@
 package com.example.administrator.bottomdialogapp;
 
-import android.content.Context;
-import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 
 public class ShowBottomDialogAct extends AppCompatActivity {
     private Button showBtn;
-    private BottomDialogView menuWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,39 +23,12 @@ public class ShowBottomDialogAct extends AppCompatActivity {
 
 
     private void showDialog() {
-        menuWindow = new BottomDialogView(ShowBottomDialogAct.this, itemsOnClick);
-        //设置窗口显示在parent布局的位置并显示
-        menuWindow.showAtLocation(ShowBottomDialogAct.this.findViewById(R.id.activity_show_bottom_dialog), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0); //设置窗口显示在parent布局的位置并显示
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);//自动打开软键盘
-        imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-    }
-
-    //为弹出窗口实现监听类
-    private View.OnClickListener itemsOnClick = new View.OnClickListener() {
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.backDialogIv:
-                case R.id.cancelBtn:
-                    menuWindow.dismiss();
-                    break;
-                case R.id.confirmBtn:
-                    //doSomething()
-                    menuWindow.dismiss();
-                    break;
-                default:
-                    break;
+        DialogUtil.showBottomDialog(ShowBottomDialogAct.this, R.id.activity_show_bottom_dialog, new BottomDialogOnclickListener() {
+            @Override
+            public void onPositiveClick(View view, BottomDialogView dialogView) {
+                dialogView.dismiss();
             }
-
-        }
-
-    };
-
-
-    @Override
-    protected void onDestroy() {
-        if (menuWindow != null) {
-            menuWindow = null;
-        }
-        super.onDestroy();
+        });
     }
+
 }
