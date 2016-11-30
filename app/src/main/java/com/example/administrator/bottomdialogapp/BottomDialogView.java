@@ -43,7 +43,7 @@ public class BottomDialogView extends PopupWindow {
         confirmBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                bottomDialogOnclickListener.onPositiveClick(view, BottomDialogView.this);
+                bottomDialogOnclickListener.onPositiveClick(payPassEt.getText().toString().trim(), BottomDialogView.this);
             }
         });
 

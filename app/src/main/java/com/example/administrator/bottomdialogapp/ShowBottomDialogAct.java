@@ -25,7 +25,7 @@ public class ShowBottomDialogAct extends AppCompatActivity {
     private void showDialog() {
         DialogUtil.showBottomDialog(ShowBottomDialogAct.this, R.id.activity_show_bottom_dialog, new BottomDialogOnclickListener() {
             @Override
-            public void onPositiveClick(View view, BottomDialogView dialogView) {
+            public void onPositiveClick(String contentStr, BottomDialogView dialogView) {
                 dialogView.dismiss();
             }
         });
